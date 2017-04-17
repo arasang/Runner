@@ -178,12 +178,13 @@ public class MainActivity extends AppCompatActivity implements
 
                     double tempTime = (currentLocation.getTime() - beforeLocation.getTime()) * 0.001;
 
-                    velocity = String.format("%.2f", (beforeLocation.distanceTo(currentLocation) / tempTime));
-                    if (!velocity.equals(Double.NaN) )
+                    velocity = String.format("%.2f", (beforeLocation.distanceTo(currentLocation) / (float)tempTime));
+                    if (!velocity.equals("NaN") ) {
                         textVelocity.setText(velocity);
+                        arrayVelocity.add(beforeLocation.distanceTo(currentLocation) / tempTime);
+                    }
                     textDistance.setText(String.format("%.1f", distance));
 
-                    arrayVelocity.add(beforeLocation.distanceTo(currentLocation) / tempTime);
 
                     int cal = (int) calories.onCalculate(weight, timeForCalories, velocity, activation);
                     LocationService.calories += cal;
@@ -561,6 +562,7 @@ public class MainActivity extends AppCompatActivity implements
                             query = new StringBuilder();
                             query.append(
                                     "INSERT INTO RECORD_DETAIL(" +
+                                            "ACTIVATION, " +
                                             "START_LATITUDE, " +
                                             "START_LONGITUDE, " +
                                             "END_LATITUDE, " +
@@ -571,13 +573,14 @@ public class MainActivity extends AppCompatActivity implements
                                             "HIGHEST_SPEED, " +
                                             "TOTAL_CALORIES, " +
                                             "TOTAL_TIME) VALUES(");
+                            query.append("'" + activation + "', ");
                             query.append(arrayLocations.get(0).getLatitude() + ", ");
                             query.append(arrayLocations.get(0).getLongitude() + ", ");
                             query.append(arrayLocations.get(arrayLocations.size()-1).getLatitude() + ", ");
                             query.append(arrayLocations.get(arrayLocations.size()-1).getLongitude() + ", ");
                             query.append(String.valueOf(highestAltitude) + ", ");
                             query.append(String.valueOf(lowestAltitude) + ", ");
-                            query.append(String.valueOf(totalVelocity) + ", ");
+                            query.append(String.format("%.1f",totalVelocity / arrayVelocity.size()) + ", ");
                             query.append(String.valueOf(highestVelocity) + ", ");
                             query.append(String.valueOf(LocationService.calories) + ", ");
                             query.append(String.valueOf(betweenTime));

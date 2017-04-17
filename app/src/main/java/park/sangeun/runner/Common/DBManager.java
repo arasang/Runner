@@ -53,6 +53,7 @@ public class DBManager extends SQLiteOpenHelper {
 
         sql = "CREATE TABLE RECORD_DETAIL (" +
                 "_id INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "ACTIVATION VARCHAR, " +
                 "START_LATITUDE DOUBLE, " +
                 "START_LONGITUDE DOUBLE, " +
                 "END_LATITUDE DOUBLE, " +

@@ -42,6 +42,7 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
     private View view ;
     private GoogleMap map;
     private MapFragment mapFragment;
+    private TextView textTitle;
     private TextView textDistance;
     private TextView textTime;
     private TextView textCalories;
@@ -68,6 +69,7 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
         mapFragment = (MapFragment) getActivity().getFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
+        textTitle = (TextView) view.findViewById(R.id.textActivityTitle);
         textDistance = (TextView) view.findViewById(R.id.textDistance);
         textTime = (TextView) view.findViewById(R.id.textTime);
         textCalories = (TextView) view.findViewById(R.id.textCalories);
@@ -89,14 +91,13 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
             });
         }
 
-        adapter = new RecordDetailAdapter(getContext(), resultRecord);
-        listView.setAdapter(adapter);
         setListViewHeightBasedOnChildren(listView);
 
         listView.setFocusable(false);
         
         long time = Long.parseLong(resultRecord.get(0).get("TOTAL_TIME").toString());
 
+        textTitle.setText(setActivityTitle());
         if (resultRecord.get(0).get("TOTAL_DISTANCE").toString() == null) {
             textDistance.setText("0");
         }else {
@@ -104,6 +105,25 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
         }
         textTime.setText(String.format("%02d:%02d:%02d", time/1000/3600, (time/1000)/60, (time/1000)%60));
         textCalories.setText(resultRecord.get(0).get("TOTAL_CALORIES").toString());
+    }
+
+    private String setActivityTitle() {
+        String value = "";
+
+        switch (resultRecord.get(0).get("ACTIVATION").toString()){
+            case Metrics.ACTIVITY_RUN:
+                value = getResources().getString(R.string.Run);
+                break;
+
+            case Metrics.ACTIVITY_WALK:
+                value = getResources().getString(R.string.Walk);
+                break;
+
+            case Metrics.ACTIVITY_BICYCLE:
+                value = getResources().getString(R.string.Bicycle);
+                break;
+        }
+        return value;
     }
 
     private void setListViewHeightBasedOnChildren(ListView listView) {
@@ -125,6 +145,8 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
         params.height = totalHeight + (listView.getDividerHeight() * (adapter.getCount() - 1));
         listView.setLayoutParams(params);
         listView.requestLayout();
+
+        listView.setAdapter(adapter);
     }
 
 
@@ -133,6 +155,7 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
         ArrayList<HashMap<String,Object>> result = new ArrayList<HashMap<String,Object>>();
         dbManager = new DBManager(getActivity(), Metrics.DATABASE_NAME, null, Metrics.DATABASE_VERSION);
         String[] paramsSelect = {
+                "ACTIVATION",
                 "START_LATITUDE",
                 "START_LONGITUDE",
                 "END_LATITUDE",

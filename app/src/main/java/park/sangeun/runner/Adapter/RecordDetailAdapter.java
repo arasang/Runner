@@ -93,7 +93,14 @@ public class RecordDetailAdapter extends BaseAdapter {
         String value = "";
         switch (position) {
             case 0:
-                value = param.get("AVG_SPEED").toString() + "km/h";
+                String totalVelocity = param.get("AVG_SPEED").toString();
+                String totalTime = param.get("TOTAL_TIME").toString();
+
+                long time = Long.parseLong(totalTime) / 1000;
+                long velocity = Long.parseLong(totalVelocity);
+
+                value = String.valueOf(velocity / time);
+
                 break;
 
             case 1:

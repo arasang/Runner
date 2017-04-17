@@ -36,6 +36,6 @@
     <string name="AverageVelocity">평균 속도</string>
     <string name="MaxVelocity">최대 속도</string>
     <string name="RisingAltitude">상승 고도</string>
-    <string name="DescentingAltitude">하강 고도</string>
+    <string name="DescendingAltitude">하강 고도</string>
     <string name="MaxAltitude">최대 고도</string>
 </resources>

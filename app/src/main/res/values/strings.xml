@@ -37,7 +37,7 @@
     <string name="ActivationTitle">Choose Activation</string>
     <string name="MovingDistanceTitle">Moving Distance</string>
     <string name="Run">Run</string>
-    <string name="Work">Work</string>
+    <string name="Walk">Walk</string>
     <string name="Bicycle">Bicycle</string>
     <string name="Distance">Distance(km)</string>
     <string name="Time">Activity Time</string>

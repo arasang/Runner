@@ -99,7 +99,12 @@ public class LocationService extends Service implements
                 intent.putParcelableArrayListExtra("arrayLatLng", arrayLatLng);
                 sendBroadcast(intent);
 
-                handler.sendEmptyMessage(0);
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        handler.sendEmptyMessage(0);
+                    }
+                }, 1000);
             }
 
             if (msg.what == 1) {
@@ -110,12 +115,7 @@ public class LocationService extends Service implements
                 intent.putExtra("time", betweenTime);
                 sendBroadcast(intent);
 
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        handler.sendEmptyMessage(1);
-                    }
-                }, 1000);
+                handler.sendEmptyMessage(1);
             }
         }
     };
