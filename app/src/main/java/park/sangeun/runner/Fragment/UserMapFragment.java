@@ -169,6 +169,11 @@ public class UserMapFragment extends Fragment implements OnMapReadyCallback,  Go
                 "TOTAL_TIME",
         };
         HashMap<String,String> paramsWhere = new HashMap<String,String>();
+        Log.d("상은", "포지션 : " + position);
+        if(position == 0)
+            position ++;
+        if(position == 1)
+            position --;
         paramsWhere.put("_id", String.valueOf(position));
         result = dbManager.onSelectRecord(Metrics.DATABASE_RECORD_DETAIL_TABLE_NAME, paramsSelect, paramsWhere);
 

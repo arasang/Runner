@@ -97,14 +97,14 @@ public class RecordDetailAdapter extends BaseAdapter {
                 String totalTime = param.get("TOTAL_TIME").toString();
 
                 long time = Long.parseLong(totalTime) / 1000;
-                long velocity = Long.parseLong(totalVelocity);
+                double velocity = Double.parseDouble(totalVelocity);
 
-                value = String.valueOf(velocity / time);
+                value = String.format("%.2f",velocity / time) + "m/s";
 
                 break;
 
             case 1:
-                value = param.get("HIGHEST_SPEED").toString() + "km/h";
+                value = param.get("HIGHEST_SPEED").toString() + "m/s";
                 break;
 
             case 2:
