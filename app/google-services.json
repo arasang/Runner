@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "610341572820",
+    "project_id": "runner-163005"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:610341572820:android:4bbea43bd7345b1c",
+        "android_client_info": {
+          "package_name": "park.sangeun.runner"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "610341572820-nrb2jl9oqs9avl1neidmpfkat0ngs3ll.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "park.sangeun.runner",
+            "certificate_hash": "a1282ba7afee8ba5d7d569eee845e1d3376d2a7c"
+          }
+        },
+        {
+          "client_id": "610341572820-b40dso1iu63j8jlaeh56hscvon5qlj1m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6L2r7sD2lfMjcXZErR_nORI61rFm7cCg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

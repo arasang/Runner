@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:background="@color/colorPrimary">
+    
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RUNNER"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        android:textSize="67sp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/buttonGoogle"
+        android:background="@android:color/holo_red_light"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="150dp">
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@color/colorGoogle"
+            android:src="@drawable/icon_google"
+            android:id="@+id/imageGoogle"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_toRightOf="@id/imageGoogle"
+            android:text="Login for Google Account"
+            android:textColor="@android:color/white"
+            android:gravity="center"/>
+    </RelativeLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:id="@+id/buttonLogin"
+        android:background="@android:color/darker_gray"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="60dp"
+        android:layout_marginTop="10dp"
+        android:text="로그인"/>
+
+</LinearLayout>

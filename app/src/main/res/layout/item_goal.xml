@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="70dp"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp">
+
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:id="@+id/imageFlag"
+        android:src="@drawable/icon_finish"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="20dp"/>
+    
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textTitle"
+        android:text="연간 러닝 목표"
+        android:textSize="17sp"
+        android:textColor="@android:color/black"
+        android:layout_toRightOf="@+id/imageFlag"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textMessage"
+        android:text="2017년 연간 목표를 선택하세요."
+        android:textSize="12sp"
+        android:layout_toRightOf="@+id/imageFlag"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="15dp"/>
+
+</RelativeLayout>
