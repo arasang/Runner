@@ -27,4 +27,15 @@
     <string name="AnnualGoalInfo">를 위해 연간 러닝 목표를 세우세요 !</string>
     <string name="ActivationTitle">활동 선택</string>
     <string name="MovingDistanceTitle">이동거리</string>
+    <string name="Run">달리기</string>
+    <string name="Work">걷기</string>
+    <string name="Bicycle">라이딩</string>
+    <string name="Distance">거리(km)</string>
+    <string name="Time">운동 시간</string>
+    <string name="Calorie">칼로리</string>
+    <string name="AverageVelocity">평균 속도</string>
+    <string name="MaxVelocity">최대 속도</string>
+    <string name="RisingAltitude">상승 고도</string>
+    <string name="DescentingAltitude">하강 고도</string>
+    <string name="MaxAltitude">최대 고도</string>
 </resources>

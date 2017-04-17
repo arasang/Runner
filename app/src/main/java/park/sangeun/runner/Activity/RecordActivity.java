@@ -72,6 +72,15 @@ public class RecordActivity extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        listRecord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Intent intent = new Intent(RecordActivity.this, RecordDetailActivity.class);
+                intent.putExtra("_id", position);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

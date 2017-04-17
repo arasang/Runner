@@ -7,6 +7,9 @@ import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+
+import com.google.android.gms.maps.MapFragment;
 
 import park.sangeun.runner.Adapter.ViewPagerAdapter;
 import park.sangeun.runner.Common.ConvertPixel;
@@ -20,12 +23,15 @@ public class RecordDetailActivity extends AppCompatActivity{
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private ViewPagerAdapter adapter;
+    private int position = 0;
 
     private ConvertPixel convertPixel = new ConvertPixel(this);
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_record_detail);
+
+        position = getIntent().getIntExtra("_id", 0);
 
         initView();
     }
@@ -43,7 +49,7 @@ public class RecordDetailActivity extends AppCompatActivity{
         tabLayout.setSelectedTabIndicatorColor(Color.WHITE);
         tabLayout.setSelectedTabIndicatorHeight(convertPixel.DpToPx(3));
 
-        adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount(), position);
         viewPager.setAdapter(adapter);
         viewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 

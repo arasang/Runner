@@ -569,16 +569,19 @@ public class MainActivity extends AppCompatActivity implements
                                             "LOWEST_ALTITUDE, " +
                                             "AVG_SPEED, " +
                                             "HIGHEST_SPEED, " +
-                                            "TOTAL_CALORIES) VALUES(");
+                                            "TOTAL_CALORIES, " +
+                                            "TOTAL_TIME) VALUES(");
                             query.append(arrayLocations.get(0).getLatitude() + ", ");
                             query.append(arrayLocations.get(0).getLongitude() + ", ");
                             query.append(arrayLocations.get(arrayLocations.size()-1).getLatitude() + ", ");
                             query.append(arrayLocations.get(arrayLocations.size()-1).getLongitude() + ", ");
                             query.append(String.valueOf(highestAltitude) + ", ");
                             query.append(String.valueOf(lowestAltitude) + ", ");
-                            query.append(String.valueOf(totalVelocity / (betweenTime / 1000)) + ", ");
+                            query.append(String.valueOf(totalVelocity) + ", ");
                             query.append(String.valueOf(highestVelocity) + ", ");
-                            query.append(String.valueOf(LocationService.calories));
+                            query.append(String.valueOf(LocationService.calories) + ", ");
+                            query.append(String.valueOf(betweenTime));
+                            Log.d("상은", "betweenTime : " + betweenTime);
                             query.append(");");
 
                             dbManager.onInsert(query.toString());

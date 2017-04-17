@@ -62,7 +62,8 @@ public class DBManager extends SQLiteOpenHelper {
                 "AVG_SPEED DOUBLE, " +
                 "HIGHEST_SPEED DOUBLE(3), " +
                 "TOTAL_DISTANCE DOUBLE(5), " +
-                "TOTAL_CALORIES INTEGER(5)"+
+                "TOTAL_CALORIES INTEGER(5), " +
+                "TOTAL_TIME REAL"+
                 ");";
 
         sqLiteDatabase.execSQL(sql);
@@ -222,7 +223,11 @@ public class DBManager extends SQLiteOpenHelper {
 
         while (cursor.moveToNext()) {
             for (int i=0; i<paramsSelect.length; i++){
-                value.put(paramsSelect[i], cursor.getString(i));
+                if(cursor.getString(i) != null) {
+                    value.put(paramsSelect[i], cursor.getString(i));
+                } else {
+                    value.put(paramsSelect[i], "0");
+                }
             }
             result.add(value);
         }

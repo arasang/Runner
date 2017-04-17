@@ -36,5 +36,16 @@
     <string name="AnnualTitle">Annual Running Goal</string>
     <string name="ActivationTitle">Choose Activation</string>
     <string name="MovingDistanceTitle">Moving Distance</string>
+    <string name="Run">Run</string>
+    <string name="Work">Work</string>
+    <string name="Bicycle">Bicycle</string>
+    <string name="Distance">Distance(km)</string>
+    <string name="Time">Activity Time</string>
+    <string name="Calorie">Calorie</string>
+    <string name="AverageVelocity">Average Velocity</string>
+    <string name="MaxVelocity">Max Velocity</string>
+    <string name="RisingAltitude">Rising Altitude</string>
+    <string name="DescendingAltitude">DescendingAltitude</string>
+    <string name="MaxAltitude">MaxAltitude</string>
     <string name="server_client_id">610341572820-nrb2jl9oqs9avl1neidmpfkat0ngs3ll.apps.googleusercontent.com</string>
 </resources>
