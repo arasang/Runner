@@ -73,6 +73,10 @@ public class LocationService extends Service implements
         return binder;
     }
 
+    public double getDistance() {
+        return distance;
+    }
+
     private Handler handler = new Handler() {
         @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
         @Override
@@ -123,9 +127,10 @@ public class LocationService extends Service implements
     public LocationService() {
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
     private void showNotification(){
-        CharSequence text = String.format("%02d:%02d:%02d", betweenTime/1000/3600, (betweenTime/1000)/60, (betweenTime/1000)%60);
+        CharSequence text = String.format("%02d:%02d:%02d", betweenTime/1000/3600, ((betweenTime/1000)/60)%60, (betweenTime/1000)%60);
 
         // The PendingIntent to launch our activity if the user selects this notification
         PendingIntent contentIntent = PendingIntent.getActivity(this, 0,

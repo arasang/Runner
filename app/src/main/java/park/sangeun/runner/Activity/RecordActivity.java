@@ -12,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.HashMap;
 
@@ -76,9 +77,10 @@ public class RecordActivity extends AppCompatActivity {
         listRecord.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Intent intent = new Intent(RecordActivity.this, RecordDetailActivity.class);
-                intent.putExtra("_id", position);
-                startActivity(intent);
+//                Intent intent = new Intent(RecordActivity.this, RecordDetailActivity.class);
+//                intent.putExtra("_id", position);
+//                startActivity(intent);
+                Toast.makeText(RecordActivity.this, "준비중입니다", Toast.LENGTH_SHORT).show();
             }
         });
     }

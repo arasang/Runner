@@ -202,7 +202,7 @@ public class MainActivity extends AppCompatActivity implements
             }
 
             if (msg.what == 1) {
-                textTime.setText(String.format("%02d:%02d:%02d", betweenTime/1000/3600, (betweenTime/1000)/60, (betweenTime/1000)%60));
+                textTime.setText(String.format("%02d:%02d:%02d", betweenTime/1000/3600, ((betweenTime/1000)/60)%60, (betweenTime/1000)%60));
             }
 
             if (msg.what == Metrics.ACTIVITY_SELECT) {
@@ -584,7 +584,6 @@ public class MainActivity extends AppCompatActivity implements
                             query.append(String.valueOf(highestVelocity) + ", ");
                             query.append(String.valueOf(LocationService.calories) + ", ");
                             query.append(String.valueOf(betweenTime));
-                            Log.d("상은", "betweenTime : " + betweenTime);
                             query.append(");");
 
                             dbManager.onInsert(query.toString());
@@ -685,12 +684,22 @@ public class MainActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+
+        doBindService();
+
+        if (locationService != null) {
+            distance = locationService.getDistance();
+            textDistance.setText(String.format("%.1f", distance));
+        }
+
         calories = new CalculateCalories(getApplicationContext());
         isStart = checkServiceRunning();
+
         getUserInformation();
     }
 
     private boolean checkServiceRunning(){
+        // 이거때문에 버튼이 시부럴.... 아오 왜이러는거야
         ActivityManager manager = (ActivityManager) getSystemService(Context.ACTIVITY_SERVICE);
         for(ActivityManager.RunningServiceInfo service : manager.getRunningServices(Integer.MAX_VALUE)) {
             if (LocationService.class.getName().equals(service.service.getClassName())) {
